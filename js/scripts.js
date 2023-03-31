@@ -1,7 +1,7 @@
 // Utility Logic
 function notNumber(element){
   if (!Number(element)) {
-    return false;
+    return true;
   }
 }
 
@@ -36,18 +36,18 @@ function getNeighbor(number){
       neighborArray.push(element);
     }
   });
-  return neighborArray.join(', ');
+  return neighborArray;
 }
 // UI Logic
 
-function boldPassage(word, text) {
-  if (isEmpty(word) || isEmpty(text)) {
+function boldPassage(number) {
+  if (notNumber(number)) {
     return null;
   }
   const p = document.createElement("p");
-  let textArray = text.split(" ");
+  const textArray = getNeighbor(number);
   textArray.forEach(function(element, index) {
-    if (word === element) {
+    if (notNumber(element)) {
       const bold = document.createElement("strong");
       bold.append(element);
       p.append(bold);
@@ -64,20 +64,14 @@ function boldPassage(word, text) {
 function handleFormSubmission() {
   event.preventDefault();
   const number = parseInt(document.getElementById("text-number").value);
-  const totalNeighbors = document.getElementById("total-neighbors").innerText;
+  let boldedPassage = boldPassage(number);
 
-  const wordCount = wordCounter(passage);
-  const occurrencesOfWord = numberOfOccurrencesInText(word, passage);
-  document.getElementById("selected-count").innerText = occurrencesOfWord;
+  if (boldedPassage) {
+    document.querySelector("div#bolded-passage").append(boldedPassage);
+  } else {
+    document.querySelector("div#bolded-passage").innerText = 'Please type a number';
+  }
 }
-  
-//   let boldedPassage = boldPassage(word, passage);
-//   if (boldedPassage) {
-//     document.querySelector("div#bolded-passage").append(boldedPassage);
-//   } else {
-//     document.querySelector("div#bolded-passage").innerText = null;
-//   }
-// }
 
 window.addEventListener("load", function() {
   document.querySelector("form#word-counter").addEventListener("submit", handleFormSubmission);
