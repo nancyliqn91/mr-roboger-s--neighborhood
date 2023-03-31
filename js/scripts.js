@@ -12,7 +12,6 @@ function notNumber(element){
 // Business Logic
 
 function beepBoop(number) {
-
   let numberArray = [];
   for (let i = 0; i <= number; i += 1) {
     numberArray.push(i);
@@ -42,13 +41,14 @@ function getNeighbor(number){
   });
   return neighborArray;
 }
+
 // UI Logic
 
 function boldPassage(number) {
   if (notNumber(number)) {
     return false;
   }
-  const p = document.querySelector("p#output");
+  const p = document.createElement("p");
   const textArray = getNeighbor(number);
   textArray.forEach(function(element, index) {
     if (notNumber(element)) {
@@ -79,15 +79,12 @@ function handleFormSubmission() {
 
 window.addEventListener("load", function() {
   let resetBtn = document.getElementById("reset");
-  // let conclusion = document.getElementById("bolded-passage");
   document.querySelector("form#count-neighbor").addEventListener("submit", handleFormSubmission);
   document.querySelector("form#count-neighbor").addEventListener("submit", function() {
     resetBtn.removeAttribute("class");
-    // conclusion.removeAttribute("class");
   }); 
   resetBtn.addEventListener("click", function() {
     document.getElementById("text-number").value = null;
-    document.querySelector("p#output").value = null;
-    // conclusion.setAttribute("class", "hidden");
+    document.querySelector("div#bolded-passage").innerText = null;
   });
 });
