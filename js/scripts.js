@@ -1,12 +1,14 @@
 // Utility Logic
-
-function isEmpty(testString) {
-  return (testString.trim().length === 0);
+function notNumber(element){
+  if (!Number(element)) {
+    return false;
+  }
 }
 
 // Business Logic
 
 function beepBoop(number) {
+
   let numberArray = [];
   for (let i = 0; i <= number; i += 1) {
     numberArray.push(i);
@@ -34,7 +36,7 @@ function getNeighbor(number){
       neighborArray.push(element);
     }
   });
-  return neighborArray;
+  return neighborArray.join(', ');
 }
 // UI Logic
 
@@ -62,7 +64,7 @@ function boldPassage(word, text) {
 function handleFormSubmission() {
   event.preventDefault();
   const number = parseInt(document.getElementById("text-number").value);
-  document.getElementById("total-neighbors").innerText = totalNeighbors;
+  const totalNeighbors = document.getElementById("total-neighbors").innerText;
 
   const wordCount = wordCounter(passage);
   const occurrencesOfWord = numberOfOccurrencesInText(word, passage);
