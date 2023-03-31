@@ -23,13 +23,12 @@ It will serve as a web application that takes a number from the user and returns
 
 ## Tests
 ```
-Describe: turnVowel()
+Describe: beepBoop()
 
-  test: "It should turn a vowel to - if a passage has just one vowel."
+  test: "It should return an array of numbers from 0 to the user's inputted number."
   Code:
-  const vowel = "a";
-  turnVowel("a");
-  Expected Output: -
+  beepBoop(5);
+  Expected Output: [0, 1, 2, 3, 4, 5]
 
 Describe: wordCounter()
 
