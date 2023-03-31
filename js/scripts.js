@@ -48,7 +48,7 @@ function boldPassage(number) {
   if (notNumber(number)) {
     return false;
   }
-  const p = document.createElement("p");
+  const p = document.querySelector("p#output");
   const textArray = getNeighbor(number);
   textArray.forEach(function(element, index) {
     if (notNumber(element)) {
@@ -79,14 +79,15 @@ function handleFormSubmission() {
 
 window.addEventListener("load", function() {
   let resetBtn = document.getElementById("reset");
-  let conclusion = document.getElementById("bolded-passage");
-  document.querySelector("form#word-counter").addEventListener("submit", handleFormSubmission);
-  document.querySelector("form#word-counter").addEventListener("submit", function() {
+  // let conclusion = document.getElementById("bolded-passage");
+  document.querySelector("form#count-neighbor").addEventListener("submit", handleFormSubmission);
+  document.querySelector("form#count-neighbor").addEventListener("submit", function() {
     resetBtn.removeAttribute("class");
-    conclusion.removeAttribute("class");
+    // conclusion.removeAttribute("class");
   }); 
   resetBtn.addEventListener("click", function() {
-    document.getElementById("bolded-passage").value = null;
-    conclusion.setAttribute("class", "hidden");
+    document.getElementById("text-number").value = null;
+    document.querySelector("p#output").value = null;
+    // conclusion.setAttribute("class", "hidden");
   });
 });
