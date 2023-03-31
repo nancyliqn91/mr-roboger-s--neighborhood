@@ -78,5 +78,15 @@ function handleFormSubmission() {
 }
 
 window.addEventListener("load", function() {
+  let resetBtn = document.getElementById("reset");
+  let conclusion = document.getElementById("bolded-passage");
   document.querySelector("form#word-counter").addEventListener("submit", handleFormSubmission);
+  document.querySelector("form#word-counter").addEventListener("submit", function() {
+    resetBtn.removeAttribute("class");
+    conclusion.removeAttribute("class");
+  }); 
+  resetBtn.addEventListener("click", function() {
+    document.getElementById("bolded-passage").value = null;
+    conclusion.setAttribute("class", "hidden");
+  });
 });
