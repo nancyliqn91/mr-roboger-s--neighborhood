@@ -25,7 +25,7 @@ function getNeighbor(number){
   const name = document.getElementById("inputName").value;
   numberArray.forEach(function(element) {
     if ((element.toString()).includes('3')) {
-      element = "Won't you be my neighbor, " + name + "?";
+      element = "Won't you be my neighbor " + name + "?";
       neighborArray.push(element);
     }
     else if ((element.toString()).includes('2')) {
@@ -79,11 +79,8 @@ function handleFormSubmission() {
 }
 
 window.addEventListener("load", function() {
-  let resetBtn = document.getElementById("reset");
+  const resetBtn = document.getElementById("reset");
   document.querySelector("form#count-neighbor").addEventListener("submit", handleFormSubmission);
-  document.querySelector("form#count-neighbor").addEventListener("submit", function() {
-    resetBtn.removeAttribute("class");
-  }); 
   // for reset value to null
   resetBtn.addEventListener("click", function() {
     document.getElementById("text-number").value = null;
