@@ -18,7 +18,7 @@ It will serve as a web application that takes a number from the user and returns
 ## Setup/Installation Requirements
 
 * Clone the project from Github to the local desktop.
-* Open the project folder(mr-roboger's -neighborhood).
+* Open the project folder(mr-roboger-s--neighborhood).
 * Open the index.html on the Chrome broswer.
 
 ## Tests
@@ -35,7 +35,7 @@ Describe: getNeighbor()
   Test: "It should return substitutions if a number has been passed in."
   Code:
   getNeighbor(1);
-  Expected Output: "Beep!"
+  Expected Output: "Beep! 0"
 
 ```
 
