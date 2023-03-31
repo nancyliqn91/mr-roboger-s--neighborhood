@@ -11,20 +11,30 @@ function beepBoop(number) {
   for (let i = 0; i <= number; i += 1) {
     numberArray.push(i);
   }
-  return numberArray;
+  return numberArray.reverse();
 }
 
-function getNeighbor(number) {
-  const neighborArray = beepBoop(number);
-  neighborArray.forEach(function(element, index) {
-    if ((word === element) && (position === -1)) {
-      position = index;
+function getNeighbor(number){
+  const numberArray = beepBoop(number);
+  let neighborArray = [];
+  numberArray.forEach(function(element) {
+    if ('3'.includes(element.toString())) {
+      element = "Won't you be my neighbor?";
+      neighborArray.push(element);
     }
-    else if ( ) {
-
+    else if ('2'.includes(element.toString())) {
+      element = "Boop!";
+      neighborArray.push(element);
+    }
+    else if ('1'.includes(element.toString())) {
+      element = "Beep!";
+      neighborArray.push(element);
+    }
+    else {
+      neighborArray.push(element);
     }
   });
-  return numberArray;
+  return neighborArray;
 }
 // UI Logic
 
@@ -57,15 +67,15 @@ function handleFormSubmission() {
   const wordCount = wordCounter(passage);
   const occurrencesOfWord = numberOfOccurrencesInText(word, passage);
   document.getElementById("selected-count").innerText = occurrencesOfWord;
-  
-  
-  let boldedPassage = boldPassage(word, passage);
-  if (boldedPassage) {
-    document.querySelector("div#bolded-passage").append(boldedPassage);
-  } else {
-    document.querySelector("div#bolded-passage").innerText = null;
-  }
 }
+  
+//   let boldedPassage = boldPassage(word, passage);
+//   if (boldedPassage) {
+//     document.querySelector("div#bolded-passage").append(boldedPassage);
+//   } else {
+//     document.querySelector("div#bolded-passage").innerText = null;
+//   }
+// }
 
 window.addEventListener("load", function() {
   document.querySelector("form#word-counter").addEventListener("submit", handleFormSubmission);
