@@ -14,6 +14,18 @@ function beepBoop(number) {
   return numberArray;
 }
 
+function getNeighbor(number) {
+  const neighborArray = beepBoop(number);
+  neighborArray.forEach(function(element, index) {
+    if ((word === element) && (position === -1)) {
+      position = index;
+    }
+    else if ( ) {
+
+    }
+  });
+  return numberArray;
+}
 // UI Logic
 
 function boldPassage(word, text) {

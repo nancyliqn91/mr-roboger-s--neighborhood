@@ -25,18 +25,17 @@ It will serve as a web application that takes a number from the user and returns
 ```
 Describe: beepBoop()
 
-  test: "It should return an array of numbers from 0 to the user's inputted number."
+  test: "It should return an reversed array of numbers from 0 to the user's inputted number."
   Code:
   beepBoop(5);
-  Expected Output: [0, 1, 2, 3, 4, 5]
+  Expected Output: [5, 4, 3, 2, 1, 0]
 
-Describe: wordCounter()
+Describe: getNeighbor()
 
-  Test: "It should return 1 if a passage has just one word."
+  Test: "It should return substitutions if a number has been passed in."
   Code:
-  const text = "hello";
-  wordCounter(text);
-  Expected Output: 1
+  getNeighbor(1);
+  Expected Output: "Beep!"
 
 ```
 
