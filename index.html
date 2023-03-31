@@ -10,19 +10,27 @@
 <body>
   <div class="container">
     <h2>Mr. Roboger's Neighborhood</h2>
+    <!-- A second form field that takes a name as an input. -->
+    <form id="name"> 
+      <label for="inputName">Please type your name here:</label>
+      <input id="inputName" type="text" name="inputName">
+    </form>
+    <!-- A first form field that takes a number as an input. -->    
     <form id="count-neighbor">
       <div class="form-group">
         <p>Input a number to get a neighbor~~:</p>
         <textarea id="text-number" name="text-number" class="form-control"></textarea>
-      </br>
+        </br>
         <button type="submit" class="btn btn-success">Submit</button>
       </div>
-    </form>
-    </br>
-    <button type="button" class="hidden" id="reset">Reset</button>
-    <p>All of the neighbors:</p>
-    <div id="bolded-passage">
-    </div>
+    <!-- For reset button -->
+      </br>
+      <button type="button" class="hidden btn btn-success" id="reset">Reset</button>
+      </br>
+      <p>All of the neighbors show up here:</p>
+      <div id="bolded-passage">
+      </div>
+    </form> 
   </div>
 </body>
 </html>

@@ -22,9 +22,10 @@ function beepBoop(number) {
 function getNeighbor(number){
   const numberArray = beepBoop(number);
   let neighborArray = [];
+  const name = document.getElementById("inputName").value;
   numberArray.forEach(function(element) {
     if ((element.toString()).includes('3')) {
-      element = "Won't you be my neighbor?";
+      element = "Won't you be my neighbor, " + name + "?";
       neighborArray.push(element);
     }
     else if ((element.toString()).includes('2')) {
@@ -83,6 +84,7 @@ window.addEventListener("load", function() {
   document.querySelector("form#count-neighbor").addEventListener("submit", function() {
     resetBtn.removeAttribute("class");
   }); 
+  // for reset value to null
   resetBtn.addEventListener("click", function() {
     document.getElementById("text-number").value = null;
     document.querySelector("div#bolded-passage").innerText = null;
