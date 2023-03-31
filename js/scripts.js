@@ -1,8 +1,12 @@
 // Utility Logic
+
 function notNumber(element){
-  if (!Number(element)) {
-    return true;
+  if(element === 0){
+    return false;
   }
+  else {
+    return (!Number(element));
+  }  
 }
 
 // Business Logic
@@ -20,15 +24,15 @@ function getNeighbor(number){
   const numberArray = beepBoop(number);
   let neighborArray = [];
   numberArray.forEach(function(element) {
-    if ('3'.includes(element.toString())) {
+    if ((element.toString()).includes('3')) {
       element = "Won't you be my neighbor?";
       neighborArray.push(element);
     }
-    else if ('2'.includes(element.toString())) {
+    else if ((element.toString()).includes('2')) {
       element = "Boop!";
       neighborArray.push(element);
     }
-    else if ('1'.includes(element.toString())) {
+    else if ((element.toString()).includes('1')) {
       element = "Beep!";
       neighborArray.push(element);
     }
@@ -42,7 +46,7 @@ function getNeighbor(number){
 
 function boldPassage(number) {
   if (notNumber(number)) {
-    return null;
+    return false;
   }
   const p = document.createElement("p");
   const textArray = getNeighbor(number);
