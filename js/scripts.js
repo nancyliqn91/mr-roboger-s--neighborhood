@@ -16,13 +16,12 @@ function beepBoop(number) {
   for (let i = 0; i <= number; i += 1) {
     numberArray.push(i);
   }
-  return numberArray.reverse();
+  return numberArray;
 }
 
-function getNeighbor(number){
+function getNeighbor(number, name){
   const numberArray = beepBoop(number);
   let neighborArray = [];
-  const name = document.getElementById("inputName").value;
   numberArray.forEach(function(element) {
     if ((element.toString()).includes('3')) {
       element = "Won't you be my neighbor " + name + "?";
@@ -45,12 +44,12 @@ function getNeighbor(number){
 
 // UI Logic
 
-function boldPassage(number) {
+function boldPassage(number, name) {
   if (notNumber(number)) {
     return false;
   }
   const p = document.createElement("p");
-  const textArray = getNeighbor(number);
+  const textArray = getNeighbor(number, name);
   textArray.forEach(function(element, index) {
     if (notNumber(element)) {
       const bold = document.createElement("strong");
@@ -69,7 +68,8 @@ function boldPassage(number) {
 function handleFormSubmission() {
   event.preventDefault();
   const number = parseInt(document.getElementById("text-number").value);
-  let boldedPassage = boldPassage(number);
+  const name = document.getElementById("inputName").value;
+  let boldedPassage = boldPassage(number, name);
 
   if (boldedPassage) {
     document.querySelector("div#bolded-passage").append(boldedPassage);
